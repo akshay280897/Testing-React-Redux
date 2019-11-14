@@ -1,12 +1,14 @@
 import React from 'react';
-import './styles.scss'
+import './styles.scss';
+import PropTypes from 'prop-types'
 
 class Header extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
-        const {header,desc} = this.props;
+        const {header,desc,temp} = this.props;
+        console.log(header);
         if(!header){
             return null;
         }
@@ -33,4 +35,13 @@ class Header extends React.Component{
 //     )
 // };
 
+Header.propTypes = {
+    header:PropTypes.string,
+    desc:PropTypes.string,
+    temp:PropTypes.arrayOf(PropTypes.shape({
+        fName:PropTypes.string,
+        lName:PropTypes.string,
+        age:PropTypes.number
+    }))
+}
 export default Header;
